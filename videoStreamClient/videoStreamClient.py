@@ -29,6 +29,7 @@ def get_stream():
                             exit(0)
         except requests.exceptions.ConnectionError:
             print("Could not connect")
+            exit(0)
 
 
 def main():
