@@ -26,6 +26,7 @@ def get_stream():
                         frame = nd_arr(final_frame)
                         cv2.imshow('Video', frame)
                         if cv2.waitKey(1) & 0xFF == ord('q'):
+                            cv2.destroyAllWindows()
                             exit(0)
         except requests.exceptions.ConnectionError:
             print("Could not connect")
