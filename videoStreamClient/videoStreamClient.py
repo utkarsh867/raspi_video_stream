@@ -24,7 +24,7 @@ def get_stream():
                         final_frame = data[a:b + 2]
                         data = data[b + 2:]
                         frame = nd_arr(final_frame)
-                        cv2.imshow('Video feed', frame)
+                        cv2.imshow('Video', frame)
                         if cv2.waitKey(1) & 0xFF == ord('q'):
                             exit(0)
         except requests.exceptions.ConnectionError:
