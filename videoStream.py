@@ -7,8 +7,7 @@ app = Flask(__name__)
 def gen(camera):
     while True:
         frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        yield frame
 
 
 @app.route('/')
@@ -18,7 +17,7 @@ def index():
 
 @app.route('/stream')
 def get_video():
-    return Response(gen(VideoStream()), mimetype='multipart/x-mixed-replace;boundary=frame')
+    return Response(gen(VideoStream()), mimetype='application/octet-stream')
 
 
 if __name__ == '__main__':
